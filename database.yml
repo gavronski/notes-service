@@ -1,0 +1,7 @@
+development:
+  dialect: postgres
+  database: notes
+  user: postgres
+  password: root
+  host: postgres
+  pool: 5
