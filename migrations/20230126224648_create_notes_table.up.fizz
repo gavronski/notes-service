@@ -1,0 +1,7 @@
+create_table("notes") {
+  t.Column("id", "integer", {primary:true})
+  t.Column("name", "string", {})
+  t.Column("description", "text", {})
+  t.Column("text_color", "string", {})
+  t.Column("background_color", "string", {})
+}
