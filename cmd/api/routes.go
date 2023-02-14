@@ -25,8 +25,12 @@ func (app *Config) routes() http.Handler {
 	// check if service is still alive
 	mux.Use(middleware.Heartbeat("/ping"))
 
-	// handle all request
-	mux.Post("/get-notes-list", app.GetNotesList)
+	mux.Get("/", app.GetNotesList)
+	mux.Post("/add", app.PostNote)
+	mux.Patch("/update", app.UpdateNote)
+	mux.Delete("/delete", app.DeleteNote)
+
+	mux.Post("/get-note-by-id", app.GetNoteByID)
 
 	return mux
 }
