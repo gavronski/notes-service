@@ -17,8 +17,9 @@ import (
 )
 
 const (
-	webPort string = "80"
-	rpcPort string = "5001"
+	webPort  string = "80"
+	rpcPort  string = "5001"
+	gRPCPort string = "50001"
 )
 
 type Config struct {
@@ -44,6 +45,7 @@ func main() {
 	err := rpc.Register(new(RPCServer))
 
 	go app.rpcListen()
+	go app.gRPCListen()
 
 	err = srv.ListenAndServe()
 
